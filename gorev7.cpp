@@ -2,26 +2,34 @@
 #include <vector>
 #include <stdlib.h>
 #include <iostream>
-int main(int cons, int rownumber, char* matr[]){
+int main(int argc, char* argv[]){
 
-	/*int cons = 3;
-	int rownumber = 2;
-	char* matr[4]= {"5","6","7","8"};*/
-
-	int element_number= sizeof(matr)/ sizeof(matr[0]);
+	double rownumber= atof(argv[2]);
+	double cons = atof(argv[1]);
+	int element_number= argc - 3;
 	std::vector<std::vector<int> > matrix(rownumber, std::vector<int>(element_number));
-	int index = 0;
+	int index = 3;
+
 	for( int i=0;i < rownumber; i++ ){
 	
 		for (int j=0; j < element_number/rownumber; j++ ){
-			matrix[i][j]= atof(matr[index]);
+			matrix[i][j]= atof(argv[index]);
 			index +=1;
 	}
 }
+
 	for(int i=0; i < element_number/rownumber; i++){
-		matrix[0][i]= matrix[0][i] * cons;
-		std::cout << matrix[0][i] << " ";
+		matrix[0][i]= matrix[0][i] * cons;		
 	}
 	
+	
+	for( int i=0;i < rownumber; i++ ){
+
+		for (int j=0; j < element_number/rownumber; j++ ){
+	 		std::cout << matrix[i][j] << " ";
+}
+	std::cout << std::endl;
+}
+
 	return 0;
 }
